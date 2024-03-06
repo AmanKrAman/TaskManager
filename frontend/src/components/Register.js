@@ -39,11 +39,12 @@ const Register = ({ user, setUser }) => {
                 return;
             }
 
-            if (result.data.status === 200) {
-                localStorage.setItem('user', JSON.stringify(result.data.data));
+            if (result.data.status == 200) {
+                // localStorage.setItem('user', JSON.stringify(result.data.data));
+                toast("Register Successfully");
                 navigate("/login");
             }else{
-                toast("invalid credentials")
+                toast("Register with differentuser")
             }
         } else {
             toast("Someting went wrong, Please try again");

@@ -15,7 +15,7 @@ mongoose.connect(DB_URL, {
     console.log(error);
 });
 // app.use(cors());
-app.use(cors({ origin: ["https://task-manager-dun.vercel.app"], credentials: true }));  //verscel
+app.use(cors({ origin: "*" , credentials: true }));  
 app.use(express.json());
 
 app.use('/api', router);

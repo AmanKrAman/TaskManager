@@ -57,9 +57,9 @@ const Register = async (req, res) => {
 
 
 
+    }else{
+        res.json(JSONStructure(StatusCode.validation_error, "Validation error", errors.mapped()));
     }
-    res.json(JSONStructure(StatusCode.validation_error, "Validation error", errors.mapped()));
-
 };
 
 
