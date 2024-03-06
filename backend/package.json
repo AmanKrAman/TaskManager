@@ -7,7 +7,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js -e js"
+    "dev": "nodemon index.js -e js",
+    "start": "node index.js",
+    "vercel-build": "echo hello"
   },
   "author": "Aman Kumar",
   "license": "ISC",
