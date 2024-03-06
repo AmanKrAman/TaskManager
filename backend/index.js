@@ -4,12 +4,8 @@ import mongoose from "mongoose";
 import { DB_URL } from "./utils/constants.js";
 import AuthMiddleware from "./middlewares/AuthMiddleware.js";
 import cors from 'cors';
-
 const app = express();
-
 const PORT = 8000;
-
-
 mongoose.connect(DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -18,7 +14,6 @@ mongoose.connect(DB_URL, {
 }).catch(error => {
     console.log(error);
 });
-
 // app.use(cors());
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
@@ -31,4 +26,4 @@ app.listen(PORT, () => {
 }); 
 
 //for vercel
-module.exports = app; 
+export default app;
