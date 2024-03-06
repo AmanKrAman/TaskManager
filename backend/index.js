@@ -29,3 +29,6 @@ app.use('/api', AuthMiddleware, Protectedapi);
 app.listen(PORT, () => {
     console.log(`Server is runing on port number ${PORT}`);
 }); 
+
+//for vercel
+module.exports = app; 
