@@ -50,7 +50,7 @@ const Login = () => {
                 navigate('/');
                 return;
             }
-            if ((result?.data?.status === 201 || result?.data?.status === 202) && result.data.data) {
+            if (result?.data?.status === 201 || result?.data?.status === 202) {
                 setError(result.data.data);
                 toast(result.data.message);
                 return;
