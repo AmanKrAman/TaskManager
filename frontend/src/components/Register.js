@@ -115,7 +115,7 @@ const Register = ({ user, setUser }) => {
                                     placeholder='Enter password'
                                     className='form-control'
                                 />
-                                {error?.passsword && (
+                                {error?.password && (
                                     <small id="" className='form-text text-danger'>{error.password.msg}</small>
                                 )
                                 }

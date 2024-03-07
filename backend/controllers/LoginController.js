@@ -11,7 +11,9 @@ const Login = async (req, res) => {
     console.log("validateResult:" , errors);
 
     if (!errors.isEmpty()) {
-      return res.status(400).json({ message: "Validation Error", errors: errors.array() });
+      // return res.status(400).json({ message: "Validation Error", errors: errors.array() });
+      res.json(JSONStructure(StatusCode.validation_error, "Validation error", errors.mapped()));
+      return
     }
 
     const { username, password } = req.body;

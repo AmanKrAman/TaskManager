@@ -2,6 +2,6 @@ import { check } from "express-validator";
 
 
 export const LoginSchema = [
-    check('username', 'username is required').exists().isAlphanumeric().withMessage("username should be alphanumeric charecter only").trim().isLength({ min: 6, max: 32 }),
-    check('password', 'Password is required').exists().isLength({ min: 8, max: 32 })
+    check('username', 'username should be alphanumeric charecter only').exists().isAlphanumeric().withMessage("user is required").trim().isLength({ min: 6, max: 32 }),
+    check('password', 'password should be of min 6 character').exists().withMessage("Password is required").isLength({ min: 6, max: 32 })
 ]

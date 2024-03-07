@@ -45,9 +45,14 @@ const Login = () => {
             const result = await login(form);
             console.log('Received data from login:', result.data.data);
 
-            if (result.status === 200 && result.data.data && result.data.status) {
+            if (result.status === 200 && result.data.data && result.data.status === 200) {
                 localStorage.setItem('user', JSON.stringify(result.data.data));
                 navigate('/');
+                return;
+            }
+            if ((result?.data?.status === 201 || result?.data?.status === 202) && result.data.data) {
+                setError(result.data.data);
+                toast(result.data.message);
                 return;
             }
 
@@ -55,8 +60,10 @@ const Login = () => {
 
 
 
+
             if (result.data.status === 500) {
                 setError(result.data.data);
+                return
             }
 
 
@@ -93,6 +100,10 @@ const Login = () => {
                                         id="exampleInputusername" aria-describedby="nameHelp"
                                         placeholder="Enter username"
                                     />
+                                    {error?.username && (
+                                    <small id="" className='form-text text-danger'>{error.username.msg}</small>
+                                    )
+                                    }
 
                                 </div>
                                 <div className="form-group">
@@ -106,6 +117,10 @@ const Login = () => {
                                         autoComplete="off"
 
                                     />
+                                    {error?.password && (
+                                    <small id="" className='form-text text-danger'>{error.password.msg}</small>
+                                    )
+                                    }
 
                                 </div>
 
